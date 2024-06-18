@@ -3,7 +3,7 @@ import TableOfContentsHeading from "./TableOfContentsHeading.astro";
 
 // https://kld.dev/building-table-of-contents/
 const { headings } = Astro.props;
-const toc = buildToc(headings);
+// const toc = buildToc(headings);
 
 export interface Heading {
   depth: number;
@@ -11,23 +11,23 @@ export interface Heading {
   text: string;
 }
 
-function buildToc(headings: Heading[]) {
-  const toc: Heading[] = [];
-  const parentHeadings = new Map();
-  headings.forEach((h) => {
-    const heading = { ...h, subheadings: [] };
-    parentHeadings.set(heading.depth, heading);
-    if (heading.depth === 2) {
-      toc.push(heading);
-    } else {
-      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
-    }
-  });
-  return toc;
-}
+// function buildToc(headings: Heading[]) {
+//   const toc: Heading[] = [];
+//   const parentHeadings = new Map();
+//   headings.forEach((h) => {
+//     const heading = { ...h, subheadings: [] };
+//     parentHeadings.set(heading.depth, heading);
+//     if (heading.depth === 2) {
+//       toc.push(heading);
+//     } else {
+//       parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+//     }
+//   });
+//   return toc;
+// }
 ---
 
-<details
+<!-- <details
   open
   class="animate rounded-lg border border-black/15 dark:border-white/20"
 >
@@ -37,7 +37,7 @@ function buildToc(headings: Heading[]) {
       {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
     </ul>
   </nav>
-</details>
+</details> -->
 
 <style>
   summary {
